@@ -1,0 +1,151 @@
+/* Estilos globais */
+:root {
+    --cor-primaria: #343a40;
+    --cor-secundaria: #495057;
+    --cor-botoes: #0d6efd;
+    --cor-texto: #212529;
+}
+
+body {
+    background-color: #f8f9fa;
+}
+
+/* Sidebar */
+.sidebar {
+    min-height: 100vh;
+    background-color: var(--cor-primaria);
+    color: white;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.nav-link {
+    color: rgba(255,255,255,.75);
+    transition: all 0.3s;
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin: 2px 10px;
+}
+
+.nav-link:hover {
+    color: white;
+    background-color: rgba(255,255,255,.1);
+}
+
+.nav-link.active {
+    background-color: var(--cor-secundaria);
+    color: white;
+}
+
+.nav-link i {
+    width: 20px;
+    text-align: center;
+    margin-right: 8px;
+}
+
+/* Avatar e cores */
+.avatar-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* Cards e tabelas */
+.card {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    border: none;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.card-header {
+    background-color: white;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    padding: 1rem;
+}
+
+/* Animações */
+.fade-in {
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .sidebar {
+        min-height: auto;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 80%;
+        z-index: 1050;
+        height: 100%;
+        overflow-y: auto;
+    }
+    
+    .sidebar.show {
+        left: 0;
+    }
+    
+    .sidebar-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.5);
+        z-index: 1040;
+        display: none;
+    }
+    
+    .sidebar-backdrop.show {
+        display: block;
+    }
+    
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    /* Botões de ação maiores em mobile */
+    .action-buttons .btn {
+        margin-bottom: 0.5rem;
+        display: inline-block;
+        min-width: 44px;
+        min-height: 44px;
+    }
+    
+    /* Tabelas responsivas */
+    .table td, .table th {
+        padding: 0.75rem;
+    }
+    
+    /* Formulários mais amigáveis para touch */
+    .form-control, .form-select, .btn {
+        padding: 0.5rem 0.75rem;
+        font-size: 1rem;
+        min-height: 44px;
+    }
+    
+    /* Ajustes para cabeçalhos */
+    h1 {
+        font-size: 1.75rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1.25rem;
+    }
+}
