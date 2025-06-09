@@ -51,7 +51,7 @@ if ($table_exists) {
         // Inserir configurações iniciais
         $sql_insert = "INSERT INTO configuracoes (chave, valor, descricao, tipo) VALUES
             ('nome_empresa', 'Zaion GC', 'Nome da empresa exibido no sistema e comprovantes', 'texto'),
-            ('logo_url', '', 'URL da logomarca da empresa', 'imagem'),
+            ('logo_url', 'assets/images/logo.png', 'URL da logomarca da empresa', 'imagem'),
             ('telefone_empresa', '', 'Telefone de contato da empresa', 'texto'),
             ('email_empresa', '', 'Email de contato da empresa', 'texto'),
             ('endereco_empresa', '', 'Endereço da empresa', 'texto'),
@@ -63,7 +63,7 @@ if ($table_exists) {
         
         // Carregar as configurações padrão
         $config['nome_empresa'] = 'Zaion GC';
-        $config['logo_url'] = '';
+        $config['logo_url'] = 'assets/images/logo.png';
         $config['telefone_empresa'] = '';
         $config['email_empresa'] = '';
         $config['endereco_empresa'] = '';
@@ -80,6 +80,12 @@ if (!isset($config['nome_empresa'])) {
 if (!isset($config['mensagem_comprovante'])) {
     $config['mensagem_comprovante'] = "Agradecemos pela preferência!\nPara mais informações, entre em contato conosco.";
 }
+if (empty($config['logo_url'])) {
+    $config['logo_url'] = 'assets/images/logo.png';
+}
+
+// Disponibilizar configurações na sessão para uso global
+$_SESSION['config'] = $config;
 
 // Função para obter o caminho base da aplicação
 function getBasePath() {
