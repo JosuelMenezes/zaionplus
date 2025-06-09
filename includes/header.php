@@ -48,7 +48,8 @@ $is_extras = ($is_funcionarios && strpos($current_uri, '/extras') !== false);
 
 // Carrega configurações da sessão ou usa valores padrão.
 $empresa_nome = $_SESSION['config']['nome_empresa'] ?? 'Domaria Cafe';
-$logo_url = $_SESSION['config']['logo_url'] ?? 'assets/images/logo.png';
+$logo_session = $_SESSION['config']['logo_url'] ?? '';
+$logo_url = !empty($logo_session) ? $logo_session : 'assets/images/logo.png';
 $versao_sistema = $_SESSION['config']['versao_sistema'] ?? '1.4';
 $cor_primaria = $_SESSION['config']['cor_primaria'] ?? '#343a40';
 $cor_secundaria = $_SESSION['config']['cor_secundaria'] ?? '#6c757d';
