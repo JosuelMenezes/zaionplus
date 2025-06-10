@@ -1,22 +1,6 @@
 <?php
-// Configuração do banco de dados para Lista de Compras
-// Usando suas credenciais existentes
-
-$host = 'localhost';
-$username = 'dunkac76_jghoste';
-$password = "382707020@'";
-$database = 'dunkac76_uzumaki';
-
-// Conectar usando MySQLi (como seu sistema existente)
-$conn = new mysqli($host, $username, $password, $database);
-
-// Verificar conexão
-if ($conn->connect_error) {
-    die("Falha na conexão: " . $conn->connect_error);
-}
-
-// Definir charset
-$conn->set_charset("utf8");
+// Utilizar a configuração principal de banco de dados
+require_once __DIR__ . '/../config/database.php';
 
 // Criar conexão PDO para compatibilidade com o módulo Lista de Compras
 try {

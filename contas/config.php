@@ -2,19 +2,16 @@
 // contas/config.php
 // Configuração específica do módulo Contas - Sistema Domaria Café
 
-// 1. Definir as credenciais do seu banco de dados
-define('DB_HOST', 'localhost');
-define('DB_USER', 'dunkac76_jghoste');
-define('DB_PASS', "382707020@'");
-define('DB_NAME', 'dunkac76_uzumaki');
+// 1. Utilizar a configuração principal de banco de dados
+require_once __DIR__ . '/../config/database.php';
 
-// 2. Criar a conexão PDO
+// 2. Criar a conexão PDO utilizando as credenciais do arquivo principal
 $pdo_connection = null; 
 try {
     $pdo_connection = new PDO(
-        "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=utf8",
-        DB_USER,
-        DB_PASS,
+        "mysql:host=" . $host . ";dbname=" . $database . ";charset=utf8",
+        $username,
+        $password,
         [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
